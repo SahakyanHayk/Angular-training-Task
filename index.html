@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Angular training|Task</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">	
+</head>
+
+<body>
+	<div class="numb_div">
+		<p id="number"></p>
+		<button id="myBtn" class="myBtn1" onclick="random_num(num_arr)" >Enter</button>
+	</div>
+	<div id="myModal" class="modal">
+  		<div class="modal-content">
+    		<p class="warn_pgf">Թվերը վերջացել են !!!</p>
+  		</div>
+  		<button id="myBtn" class="close">Cancel</button>
+  		<button id="myBtn" onclick="update()">Retry</button>
+	</div>
+
+	<script type="text/javascript">
+
+		var num_arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+		function random_num(num_arr){
+			if(num_arr.length != 0){
+				var random = Math.floor(Math.random() * num_arr.length);
+    			var my_number = num_arr.splice(random,1);
+    			document.getElementById('number').innerHTML = my_number;
+    		}else{
+    			document.getElementById("myModal").style.display = "block";   			
+    		}
+		}
+
+		var modal = document.getElementById("myModal");
+		var cancel = document.getElementsByClassName("close")[0];
+		var btn = document.getElementById("myBtn");
+
+		cancel.onclick = function close() {
+  			modal.style.display = "none";
+		}
+
+		function update(){
+    		window.location.reload();
+		} 
+
+	</script>
+
+</body>
+
+</html>
